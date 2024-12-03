@@ -1,0 +1,208 @@
+/* Basic Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Project Card Animations */
+@keyframes projectCardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card {
+    animation: projectCardReveal 0.5s ease forwards;
+    opacity: 0;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Tech Tags Animation */
+@keyframes tagReveal {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.tech-tags span {
+    animation: tagReveal 0.3s ease forwards;
+    opacity: 0;
+}
+
+.tech-tags span:nth-child(1) { animation-delay: 0.1s; }
+.tech-tags span:nth-child(2) { animation-delay: 0.2s; }
+.tech-tags span:nth-child(3) { animation-delay: 0.3s; }
+.tech-tags span:nth-child(4) { animation-delay: 0.4s; }
+
+/* Hover Animations */
+@keyframes iconPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 61, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 61, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 61, 0, 0);
+    }
+}
+
+@keyframes borderGlow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(0, 255, 140, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 170, 255, 0.5);
+    }
+}
+
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    75% {
+        transform: translateY(10px) rotate(-2deg);
+    }
+}
+
+/* Text Animations */
+@keyframes textReveal {
+    0% {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+    }
+}
+
+/* Background Animations */
+@keyframes speedLines {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-101px);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Apply Animations */
+.animate-text {
+    animation: 
+        textReveal 1s ease forwards,
+        titleGlow 3s ease-in-out infinite;
+}
+
+.profile-container {
+    animation: floatAnimation 6s ease-in-out infinite;
+}
+
+.section-title {
+    animation: textReveal 1s ease forwards;
+}
+
+/* Scroll Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Progress Bar Animation */
+@keyframes progressFill {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--percent);
+    }
+}
+
+.progress-bar.animate::after {
+    animation: progressFill 1.5s ease-out forwards;
+}
