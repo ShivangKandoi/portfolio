@@ -123,7 +123,7 @@ section {
 /* Button Styles */
 .btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 0.5rem 2.0rem;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 500;

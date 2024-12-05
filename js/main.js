@@ -138,4 +138,38 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'none';
     });
-}); 
+});
+
+// Form submission handling
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Get form values
+    const name = this.querySelector('input[type="text"]').value;
+    const email = this.querySelector('input[type="email"]').value;
+    const message = this.querySelector('textarea').value;
+
+    // Simple validation
+    if (name && email && message) {
+        // Send email using EmailJS
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+            from_name: name,
+            from_email: email,
+            message: message
+        })
+        .then((response) => {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset(); // Reset the form
+        }, (error) => {
+            console.log('FAILED...', error);
+            alert('Oops! Something went wrong. Please try again later.');
+        });
+    } else {
+        alert('Please fill in all fields.');
+    }
+});
+
+(function() {
+    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+})(); 
